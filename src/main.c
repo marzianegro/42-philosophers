@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:40 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 11:15:18 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:07 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_symposium(t_philo *philo)
 {

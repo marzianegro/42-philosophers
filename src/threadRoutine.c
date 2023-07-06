@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:18:35 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 11:15:21 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:09 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_take_fork(t_symp *symp, t_philo *philo)
 {

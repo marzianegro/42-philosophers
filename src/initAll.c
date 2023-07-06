@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:30 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 11:26:09 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:01 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_init_symp(int argc, char **argv, t_symp *symp)
 {

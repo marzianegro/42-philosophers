@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:25 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 11:15:41 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:11 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_monitoring(t_symp *symp, t_philo *philo)
 {

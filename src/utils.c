@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:38 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 11:26:08 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:08 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 void	ft_error(char *str)
 {

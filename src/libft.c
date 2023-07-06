@@ -6,11 +6,11 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 11:46:43 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 10:09:29 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/06 22:04:04 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 int	ft_atoi(const char *nptr)
 {
