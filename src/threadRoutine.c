@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:18:35 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 22:04:09 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 15:14:32 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_take_fork(t_symp *symp, t_philo *philo)
 	{
 		ft_get_time(symp);
 		printf("%ld %d has taken a fork\n",
-			symp->current_time, philo->right_fork);
+			symp->current_time, philo->right_fork + 1);
 	}
 	pthread_mutex_unlock(&symp->symp_gate);
 }
@@ -30,7 +30,9 @@ void	ft_eat(t_symp *symp, t_philo *philo)
 	if (symp->philo_death != 1)
 	{
 		ft_get_time(symp);
-		printf("%ld %d is eating\n", symp->current_time, philo->right_fork);
+		printf("%ld %d is eating\n", symp->current_time, philo->right_fork + 1);
+		philo->symp->n_eat[philo->right_fork] = -1;
+		ft_set_last(philo);
 	}
 	pthread_mutex_unlock(&symp->symp_gate);
 }
@@ -41,7 +43,7 @@ void	ft_sleep(t_symp *symp, t_philo *philo)
 	if (symp->philo_death != 1)
 	{
 		ft_get_time(symp);
-		printf("%ld %d is sleeping\n", symp->current_time, philo->right_fork);
+		printf("%ld %d is sleeping\n", symp->current_time, philo->right_fork + 1);
 	}
 	pthread_mutex_unlock(&symp->symp_gate);
 }
@@ -52,7 +54,7 @@ void	ft_think(t_symp *symp, t_philo *philo)
 	if (symp->philo_death != 1)
 	{
 		ft_get_time(symp);
-		printf("%ld %d is sleeping\n", symp->current_time, philo->right_fork);
+		printf("%ld %d is sleeping\n", symp->current_time, philo->right_fork + 1);
 	}
 	pthread_mutex_unlock(&symp->symp_gate);
 }

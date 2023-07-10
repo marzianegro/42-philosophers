@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:30 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 22:04:01 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 15:13:49 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_init_symp(int argc, char **argv, t_symp *symp)
 	i = 0;
 	symp->n_philo = ft_atoi(argv[1]);
 	if (symp->n_philo < 1)
-		ft_error("invalid number of arguments");
+		ft_error("invalid number of philosophers");
 	symp->philos = (pthread_t *)ft_calloc(symp->n_philo, sizeof(pthread_t));
 	if (!symp->philos)
 		ft_error("failed to allocate 'symp->philos'");
@@ -28,6 +28,7 @@ void	ft_init_symp(int argc, char **argv, t_symp *symp)
 	if (!symp->forks)
 		ft_error("failed to allocate 'symp->forks'");
 	symp->time_die = ft_atoi(argv[2]);
+	symp->last_meal = (time_t *)ft_calloc(symp->n_philo, sizeof(time_t));
 	if (argc == 6)
 	{
 		symp->n_eat = (int *)ft_calloc(symp->n_philo, sizeof(int));
@@ -89,5 +90,9 @@ int	ft_init_threads(t_symp *symp, t_philo *philo)
 			ft_error("failed to join thread");
 		i++;
 	}
+	if (pthread_create(&symp->monitor, NULL, (void *)ft_monitoring, &symp))
+		ft_error("failed to create thread");
+	if (pthread_join(symp->monitor, NULL))
+		ft_error("failed to join thread");
 	return (0);
 }

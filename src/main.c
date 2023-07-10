@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:40 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/06 22:04:07 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 15:14:34 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_symposium(t_philo *philo)
 {
 	if (philo->right_fork % 2)
-		usleep(50);
+		usleep(50000);
 	pthread_mutex_lock(&philo->symp->symp_gate);
 	while (philo->symp->philo_death != 1)
 	{
@@ -50,5 +50,6 @@ int	main(int argc, char **argv)
 	ft_init_philos(argv, &symp, philo);
 	ft_init_mutex(&symp, philo);
 	ft_init_threads(&symp, philo);
+	ft_end(&symp, philo);
 	return (0);
 }
