@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:40 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/10 15:14:34 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 16:41:58 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 5 || argc > 6)
 		ft_error("invalid number of arguments");
+	ft_alloc_symp(argc, argv, &symp);
 	ft_init_symp(argc, argv, &symp);
 	philo = (t_philo *)ft_calloc(symp.n_philo, sizeof(t_philo));
 	if (!philo)
@@ -50,6 +51,6 @@ int	main(int argc, char **argv)
 	ft_init_philos(argv, &symp, philo);
 	ft_init_mutex(&symp, philo);
 	ft_init_threads(&symp, philo);
-	ft_end(&symp, philo);
+	ft_end(argc, &symp);
 	return (0);
 }

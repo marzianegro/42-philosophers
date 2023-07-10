@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:38 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/10 15:13:31 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 16:42:08 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ void	ft_error(char *str)
 
 void	ft_get_time(t_symp *symp)
 {
-	gettimeofday(&tv, NULL);
-	symp->current_time = ((time_t)(tv.tv_sec) * 1000)
-		+ ((time_t)(tv.tv_usec) / 1000);
+	gettimeofday(&symp->tv, NULL);
+	symp->current_time = ((time_t)(symp->tv.tv_sec) * 1000)
+		+ ((time_t)(symp->tv.tv_usec) / 1000);
 }
 
 void	ft_set_last(t_philo *philo)
 {
-	gettimeofday(&tv, NULL);
-	philo->symp->last_meal[philo->right_fork] = ((time_t)(tv.tv_sec) * 1000)
-	+ ((time_t)(tv.tv_usec) / 1000);
+	gettimeofday(&philo->symp->tv, NULL);
+	philo->symp->last_meal[philo->right_fork] = ((time_t)(philo->symp->tv.tv_sec) * 1000)
+	+ ((time_t)(philo->symp->tv.tv_usec) / 1000);
 }
 
-void	ft_end(t_symp *symp, t_philo *philo)
+void	ft_end(int argc, t_symp *symp)
 {
 	free(symp->philos);
 	free(symp->forks);
 	free(symp->last_meal);
-	free(symp->n_eat);
-	free(philo);
+	if (argc == 6)
+		free(symp->n_eat);
 }

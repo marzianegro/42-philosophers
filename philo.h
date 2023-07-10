@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:34 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/10 15:13:52 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/10 16:28:47 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,17 @@ typedef struct s_symp
 	pthread_mutex_t	*forks;
 	pthread_t		monitor;
 	int				*n_eat; // how many times each philo must eat
+	struct timeval	tv;
+	time_t			start_time;
 	time_t			current_time;
 	time_t			*last_meal; // when the philo last ate; if current_time - last_meal[i] > time_die, the philo dies
 	unsigned int	time_die; // reset every time the philo eats
 	int				philo_death; // for the monitoring: checks whether a philosopher dies
 }			t_symp;
 
-struct timeval tv;
-
 /* PROTOTYPES */
 /* initAll.c */
+void	ft_alloc_symp(int argc, char **argv, t_symp *symp);
 void	ft_init_symp(int argc, char **argv, t_symp *symp);
 void	ft_init_philos(char **argv, t_symp *symp, t_philo *philo);
 void	ft_init_mutex(t_symp *symp, t_philo *philo);
@@ -73,6 +74,6 @@ void	ft_think(t_symp *symp, t_philo *philo);
 void	ft_error(char *str);
 void	ft_get_time(t_symp *symp);
 void	ft_set_last(t_philo *philo);
-void	ft_end(t_symp *symp, t_philo *philo);
+void	ft_end(int argc, t_symp *symp);
 
 #endif
