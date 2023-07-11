@@ -6,13 +6,13 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:30 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/10 17:17:28 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/11 11:46:29 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	ft_alloc_symp(int argc, char **argv, t_symp *symp)
+void	ft_alloc_symp(char **argv, t_symp *symp)
 {
 	symp->n_philo = ft_atoi(argv[1]);
 	if (symp->n_philo < 1)
@@ -27,12 +27,9 @@ void	ft_alloc_symp(int argc, char **argv, t_symp *symp)
 	symp->last_meal = (time_t *)ft_calloc(symp->n_philo, sizeof(time_t));
 	if (!symp->last_meal)
 		ft_error("failed to allocate 'symp->last_meal'");
-	if (argc == 6)
-	{
-		symp->n_eat = (int *)ft_calloc(symp->n_philo, sizeof(int));
-		if (!symp->n_eat)
-			ft_error("failed to allocate 'symp->n_eat'");
-	}
+	symp->n_eat = (int *)ft_calloc(symp->n_philo, sizeof(int));
+	if (!symp->n_eat)
+		ft_error("failed to allocate 'symp->n_eat'");
 }
 
 void	ft_init_symp(int argc, char **argv, t_symp *symp)
@@ -55,6 +52,14 @@ void	ft_init_symp(int argc, char **argv, t_symp *symp)
 		while (i < symp->n_philo)
 		{
 			symp->n_eat[i] = ft_atoi(argv[5]);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < symp->n_philo)
+		{
+			symp->n_eat[i] = -1;
 			i++;
 		}
 	}
