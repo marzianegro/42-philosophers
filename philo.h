@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:34 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/11 11:46:27 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/11 15:47:15 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_symposium(t_philo *philo);
 /* monitorPhilos.c */
 void	ft_monitoring(t_symp *symp);
-void	ft_monitor_death(t_symp *symp);
-void	ft_monitor_meals(t_symp *symp);
+void	ft_monitor_death(t_symp *symp, int *i);
 /* threadRoutine.c */
 void	ft_take_fork(t_symp *symp, t_philo *philo);
 void	ft_eat(t_symp *symp, t_philo *philo);
