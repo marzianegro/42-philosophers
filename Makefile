@@ -6,7 +6,7 @@
 #    By: mnegro <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/30 14:26:29 by mnegro            #+#    #+#              #
-#    Updated: 2023/07/14 16:07:00 by mnegro           ###   ########.fr        #
+#    Updated: 2023/07/14 16:49:37 by mnegro           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ clean:
 	@echo "Rule '${GREEN}clean${DEF_COLOR}' for ${NAME} executed successfully!"
 
 fclean:
-	${RM} ${OBJS} ${NAME} ${NAME_BONUS}
+	${RM} ${OBJS} ${NAME}
 	@echo "Rule '${GREEN}fclean${DEF_COLOR}' for ${NAME} executed successfully!"
 
 re:	fclean all

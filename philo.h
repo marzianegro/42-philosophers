@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:34 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/14 16:03:50 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/14 16:39:03 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* STRUCTURES */
 typedef struct s_philo
 {
-	int				right_fork; // this is also the philosopher's ID
+	int				right_fork;
 	int				left_fork;
 	unsigned int	time_eat;
 	unsigned int	time_sleep;
@@ -37,18 +37,18 @@ typedef struct s_philo
 
 typedef struct s_symp
 {
-	pthread_mutex_t	symp_gate; // global mutex
-	int				n_philo; // for the monitoring 
+	pthread_mutex_t	symp_gate;
+	int				n_philo; 
 	pthread_t		*philos;
 	pthread_mutex_t	*forks;
 	pthread_t		monitor;
-	int				*n_eat; // how many times each philo must eat
+	int				*n_eat;
 	struct timeval	tv;
 	time_t			start_time;
 	time_t			current_time;
-	time_t			*last_meal; // when the philo last ate; if current_time - last_meal[i] > time_die, the philo dies
-	unsigned int	time_die; // reset every time the philo eats
-	int				philo_death; // for the monitoring: checks whether a philosopher dies
+	time_t			*last_meal;
+	unsigned int	time_die;
+	int				philo_death;
 }			t_symp;
 
 /* PROTOTYPES */

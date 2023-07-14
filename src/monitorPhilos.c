@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:25 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/11 17:26:45 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/14 16:47:30 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_monitor_death(t_symp *symp, int *i)
 	if (symp->current_time - symp->last_meal[*i] > symp->time_die)
 	{
 		symp->philo_death = 1;
-		printf("%lu | Philosopher %d has died\n", symp->current_time - symp->start_time, *i + 1);
+		printf("%lu | Philosopher %d has died\n",
+			symp->current_time - symp->start_time, *i + 1);
 		pthread_mutex_unlock(&symp->symp_gate);
 		return ;
 	}
@@ -57,7 +58,7 @@ void	ft_monitor_meals(t_symp *symp, int *j)
 		if (symp->n_eat[*j] == 0)
 			*j += 1;
 		else
-		{	
+		{
 			*j = 0;
 			break ;
 		}

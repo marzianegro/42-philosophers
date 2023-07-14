@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:38 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/11 17:26:57 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/14 16:47:35 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ void	ft_get_time(t_symp *symp)
 void	ft_set_last(t_philo *philo)
 {
 	gettimeofday(&philo->symp->tv, NULL);
-	philo->symp->last_meal[philo->right_fork] = ((time_t)(philo->symp->tv.tv_sec) * 1000)
-	+ ((time_t)(philo->symp->tv.tv_usec) / 1000);
+	philo->symp->last_meal[philo->right_fork]
+		= ((time_t)(philo->symp->tv.tv_sec) * 1000)
+		+ ((time_t)(philo->symp->tv.tv_usec) / 1000);
 }
 
 void	ft_end(int argc, t_symp *symp)
