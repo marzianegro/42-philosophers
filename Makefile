@@ -6,7 +6,7 @@
 #    By: mnegro <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/30 14:26:29 by mnegro            #+#    #+#              #
-#    Updated: 2023/07/11 15:15:39 by mnegro           ###   ########.fr        #
+#    Updated: 2023/07/14 16:07:00 by mnegro           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ CFLAGS = -Wall -Wextra -Werror -g -pthread
 RM = rm -f
 
 #### TARGETS ####
-FL_SRCS = initAll.c libft.c main.c monitorPhilos.c threadRoutine.c \
-			utils.c
+FL_SRCS = initAll.c libft.c lonePhilo.c main.c \
+			monitorPhilos.c threadRoutine.c utils.c
 DIRSRCS = src/
 SRCS = ${addprefix ${DIRSRCS},${FL_SRCS}}
 
