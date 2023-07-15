@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:40 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/14 16:09:27 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/15 12:07:38 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,26 @@
 
 void	ft_symposium(t_philo *philo)
 {
-	if (philo->symp->n_philo > 1)
+	if (philo->right_fork % 2)
+		usleep(5000);
+	pthread_mutex_lock(&philo->symp->symp_gate);
+	while (philo->symp->philo_death != 1)
 	{
-		if (philo->right_fork % 2)
-			usleep(5000);
-		pthread_mutex_lock(&philo->symp->symp_gate);
-		while (philo->symp->philo_death != 1)
-		{
-			pthread_mutex_unlock(&philo->symp->symp_gate);
-			pthread_mutex_lock(&philo->symp->forks[philo->right_fork]);
-			ft_take_fork(philo->symp, philo);
-			pthread_mutex_lock(&philo->symp->forks[philo->left_fork]);
-			ft_take_fork(philo->symp, philo);
-			ft_eat(philo->symp, philo);
-			usleep(philo->time_eat * 1000);
-			pthread_mutex_unlock(&philo->symp->forks[philo->right_fork]);
-			pthread_mutex_unlock(&philo->symp->forks[philo->left_fork]);
-			ft_sleep(philo->symp, philo);
-			usleep(philo->time_sleep * 1000);
-			ft_think(philo->symp, philo);
-			pthread_mutex_lock(&philo->symp->symp_gate);
-		}
 		pthread_mutex_unlock(&philo->symp->symp_gate);
+		pthread_mutex_lock(&philo->symp->forks[philo->right_fork]);
+		ft_take_fork(philo->symp, philo);
+		pthread_mutex_lock(&philo->symp->forks[philo->left_fork]);
+		ft_take_fork(philo->symp, philo);
+		ft_eat(philo->symp, philo);
+		usleep(philo->time_eat * 1000);
+		pthread_mutex_unlock(&philo->symp->forks[philo->right_fork]);
+		pthread_mutex_unlock(&philo->symp->forks[philo->left_fork]);
+		ft_sleep(philo->symp, philo);
+		usleep(philo->time_sleep * 1000);
+		ft_think(philo->symp, philo);
+		pthread_mutex_lock(&philo->symp->symp_gate);
 	}
-	else
-		ft_lone_routine(philo->symp, philo);
+	pthread_mutex_unlock(&philo->symp->symp_gate);
 }
 
 int	main(int argc, char **argv)
@@ -55,7 +50,10 @@ int	main(int argc, char **argv)
 		ft_error("failed to allocate 'philo'");
 	ft_init_philos(argv, &symp, philo);
 	ft_init_mutex(&symp, philo);
-	ft_init_threads(&symp, philo);
+	if (symp.n_philo == 1)
+		ft_lone_thread(&symp, philo);
+	else
+		ft_init_threads(&symp, philo);
 	ft_end(argc, &symp);
 	return (0);
 }

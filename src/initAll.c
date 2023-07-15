@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:03:30 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/14 16:49:15 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/15 12:14:15 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ void	ft_init_symp(int argc, char **argv, t_symp *symp)
 	}
 	i = 0;
 	if (argc == 6)
-		memset(symp->n_eat, ft_atoi(argv[5]), symp->n_philo * sizeof(int));
+		while (i < symp->n_philo)
+			symp->n_eat[i++] = ft_atoi(argv[5]);
 	else
-		memset(symp->n_eat, -1, symp->n_philo * sizeof(int));
+		while (i < symp->n_philo)
+			symp->n_eat[i++] = -1;
 }
 
 void	ft_init_philos(char **argv, t_symp *symp, t_philo *philo)

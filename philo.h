@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:34 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/14 16:39:03 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/15 12:04:14 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int		ft_init_threads(t_symp *symp, t_philo *philo);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 /* lonePhilo.c */
-void	ft_lone_routine(t_symp *symp, t_philo *philo);
+void	ft_lone_symposium(t_philo *philo);
+void	ft_lone_thread(t_symp *symp, t_philo *philo);
 /* main.c */
 void	ft_symposium(t_philo *philo);
 /* monitorPhilos.c */
