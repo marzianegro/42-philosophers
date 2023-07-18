@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:38 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/18 14:11:07 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/18 14:28:13 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ void	ft_set_last(t_philo *philo)
 		+ ((time_t)(philo->symp->tv.tv_usec) / 1000);
 }
 
-void	ft_end(int argc, t_symp *symp)
+void	ft_end(int argc, t_symp *symp, t_philo *philo)
 {
 	int	i;
 
 	i = 0;
+	free(philo);
 	free(symp->philos);
 	while (i < symp->n_philo)
 	{
@@ -46,8 +47,6 @@ void	ft_end(int argc, t_symp *symp)
 	}
 	free(symp->forks);
 	free(symp->last_meal);
-	if (argc == 6)
-		free(symp->n_eat);
+	free(symp->n_eat);
 	pthread_mutex_destroy(&symp->symp_gate);
-	free(symp->monitor);
 }

@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:40 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/18 14:11:08 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/18 14:28:05 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	main(int argc, char **argv)
 		ft_lone_thread(&symp, philo);
 	else
 		ft_init_threads(&symp, philo);
-	ft_end(argc, &symp);
+	ft_end(argc, &symp, philo);
 	return (0);
 }

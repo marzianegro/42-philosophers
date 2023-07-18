@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:26:34 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/15 12:04:14 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/18 14:28:07 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ void	ft_think(t_symp *symp, t_philo *philo);
 void	ft_error(char *str);
 void	ft_get_time(t_symp *symp);
 void	ft_set_last(t_philo *philo);
-void	ft_end(int argc, t_symp *symp);
+void	ft_end(int argc, t_symp *symp, t_philo *philo);
 
 #endif
