@@ -6,7 +6,7 @@
 /*   By: mnegro <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:09:38 by mnegro            #+#    #+#             */
-/*   Updated: 2023/07/18 14:28:13 by mnegro           ###   ########.fr       */
+/*   Updated: 2023/07/18 14:29:01 by mnegro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_set_last(t_philo *philo)
 		+ ((time_t)(philo->symp->tv.tv_usec) / 1000);
 }
 
-void	ft_end(int argc, t_symp *symp, t_philo *philo)
+void	ft_end(t_symp *symp, t_philo *philo)
 {
 	int	i;
 
